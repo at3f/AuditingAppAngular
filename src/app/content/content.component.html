@@ -14,7 +14,7 @@
     <div class="card" *ngFor="let action of actions | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <div class="row">
         <div class="col">
-          <img src='../../assets/test.jpg' class="rounded-circle">
+          <img src='../../assets/test.png' class="rounded-circle">
           <img src='../../assets/refunded.png' class="rounded-circle" style="margin-left: -60%;width: 16%;" *ngIf="action.actionType.code=='order_refunded'">
           <img src='../../assets/created.png' class="rounded-circle" style="margin-left: -60%;width: 16%;" *ngIf="action.actionType.code=='order_created'">
         </div>
