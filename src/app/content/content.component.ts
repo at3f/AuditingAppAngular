@@ -49,7 +49,8 @@ export class ContentComponent implements OnInit,OnDestroy {
 
     this.sub = this.contentService.getActions(params).subscribe({
       next: actions => {
-        this.actions = actions
+        this.actions = actions,
+        this.p = 1;
       }
     })
   }
