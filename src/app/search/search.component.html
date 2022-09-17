@@ -1,0 +1,56 @@
+<div class="container-fluid" style="width: 100%;">
+
+  <div class="row justify-content-center">
+    <div class="mini-container">
+      <div class="label">User</div>
+      <input class="form-control form-control-lg" type="text" placeholder="e.g. john@gmail.com" [(ngModel)]='userName'>
+    </div>
+    <div class="mini-container">
+      <div class="label">Business Entity</div>
+      <input class="form-control form-control-lg" type="text" placeholder="e.g. My BE" [(ngModel)]='beName'>
+    </div>
+
+    <div class="mini-container">
+      <div class="label">Application</div>
+      <select class="form-control form-control-lg" (change)='applicationChange($event)' name="application">
+        <option value=""  selected>--select--</option>
+        <option value={{application.id}} *ngFor="let application of applications">{{application.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+
+    <div class="mini-container">
+      <div class="label">Action</div>
+      <select class="form-control form-control-lg" (change)='actionTypeChange($event)' name="actionType">
+        <option value=""  selected>--select--</option>
+        <option value={{actionType.id}} *ngFor="let actionType of actionTypes">{{actionType.code}}</option>
+      </select>
+    </div>
+
+    <div class="mini-container">
+      <div class="label">Parameter</div>
+      <select class="form-control form-control-lg" (change)='paramTypeChange($event)' name="paramType">
+        <option value=""  selected>--select--</option>
+        <option value={{parameterType.id}} *ngFor="let parameterType of parameterTypes">{{parameterType.code}}</option>
+      </select>
+    </div>
+
+    <div class="mini-container">
+      <div class="label">Parameter value</div>
+      <input class="form-control form-control-lg" type="text" placeholder="e.g. ticket" [(ngModel)]='paramValue'>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="mini-container">
+      <button type="button" class="btn btn-primary btn-lg btn-block"
+      (click) = "onClick()"
+      style="width: 100%;">Search</button>
+    </div>
+  </div>
+</div>
+
+
+
+

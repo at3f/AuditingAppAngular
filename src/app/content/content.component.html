@@ -1,0 +1,40 @@
+<div>
+
+
+
+  <div class="row justify-content-center">
+    <div *ngIf="actions.length">
+        <pagination-controls class="pagination justify-content-center" (pageChange)="p = $event" style="margin: 1% 1% 1% -1%;"></pagination-controls>
+    </div>
+
+    <div class="alert alert-warning" role="alert" style="width: 60%;margin: 4%;" *ngIf="!actions.length">
+      <strong>NO Content!</strong> You should check in on some of those fields below.
+    </div>
+
+    <div class="card" *ngFor="let action of actions | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+      <div class="row">
+        <div class="col">
+          <img src='../../assets/test.jpg' class="rounded-circle">
+          <img src='../../assets/refunded.png' class="rounded-circle" style="margin-left: -60%;width: 16%;" *ngIf="action.actionType.code=='order_refunded'">
+          <img src='../../assets/created.png' class="rounded-circle" style="margin-left: -60%;width: 16%;" *ngIf="action.actionType.code=='order_created'">
+        </div>
+          <div class="col">
+            <div style="margin: 5% 0 0 -70%;">
+              <h5 class="card-title">{{action.be.value}}</h5>
+              <p style="color: rgb(129, 129, 129);">{{action.user.value}}</p>
+            </div>
+          </div>
+          <div class="col">
+            <div style="margin: 5% 0 0 -100%; font-size: 120%;">
+              <div class="card-body">
+                <p class="card-text" *ngIf="true">{{action.description_en}}</p>
+                <p class="card-text" style="direction:rtl;"*ngIf="false">{{action.description_ar}}</p>
+            </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
