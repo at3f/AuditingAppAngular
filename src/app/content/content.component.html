@@ -1,9 +1,12 @@
 <div>
-
-
-
   <div class="row justify-content-center">
-    <div *ngIf="actions.length">
+
+    <div class="form-check form-switch" style="margin-left: 95%;" *ngIf="actions.length">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [(ngModel)]="isChecked">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Arabic</label>
+    </div>
+
+    <div *ngIf="actions.length>itemsPerPage">
         <pagination-controls class="pagination justify-content-center" (pageChange)="p = $event" style="margin: 1% 1% 1% -1%;"></pagination-controls>
     </div>
 
@@ -11,7 +14,7 @@
       <strong>NO Content!</strong> You should check in on some of those fields below.
     </div>
 
-    
+
     <div class="card" *ngFor="let action of actions | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <div class="row">
         <div class="col">
@@ -21,15 +24,15 @@
         </div>
           <div class="col">
             <div style="margin: 5% 0 0 -70%;">
-              <h5 class="card-title">{{action.be.value}}</h5>
-              <p style="color: rgb(129, 129, 129);">{{action.user.value}}</p>
+              <h5 class="card-title">{{action.be.value | titlecase}}</h5>
+              <p style="color: rgb(129, 129, 129);">{{action.user.value | titlecase}}</p>
             </div>
           </div>
           <div class="col">
             <div style="margin: 5% 0 0 -100%; font-size: 120%;">
               <div class="card-body">
-                <p class="card-text" *ngIf="true">{{action.description_en}}</p>
-                <p class="card-text" style="direction:rtl;"*ngIf="false">{{action.description_ar}}</p>
+                <p class="card-text" *ngIf="!isChecked">{{action.description_en}}</p>
+                <p class="card-text" style="direction:rtl;"*ngIf="isChecked">{{action.description_ar}}</p>
             </div>
             </div>
           </div>

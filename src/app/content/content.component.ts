@@ -16,7 +16,8 @@ export class ContentComponent implements OnInit,OnDestroy {
   constructor(private contentService:ContentService,private eventEmitterService:EventEmitterService) { }
   sub!:Subscription
   p: number = 1;
-  itemsPerPage: number = 10
+  itemsPerPage: number = 6;
+  isChecked:boolean = false;
 
   actions:IAction[]=[]
   ngOnInit(): void {
