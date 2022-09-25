@@ -1,4 +1,4 @@
-import { IActionType } from "./IACtionType"
+import { IActionType } from "./IActionType"
 import { IBusiness } from "./IBusiness"
 import { IUser } from "./IUser"
 
