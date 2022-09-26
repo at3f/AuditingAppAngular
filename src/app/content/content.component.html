@@ -1,10 +1,10 @@
 <div>
   <div class="row justify-content-center">
 
-    <div class="form-check form-switch" style="margin-left: 96%;" *ngIf="actions.length">
+    <!-- <div class="form-check form-switch" style="margin-left: 95%;" *ngIf="actions.length">
       <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [(ngModel)]="isChecked">
       <label class="form-check-label" for="flexSwitchCheckDefault">Arabic</label>
-    </div>
+    </div> -->
 
     <div *ngIf="actions.length>itemsPerPage">
         <pagination-controls class="pagination justify-content-center" (pageChange)="p = $event" style="margin: 1% 1% 1% -1%;"></pagination-controls>
@@ -18,7 +18,7 @@
     <div class="card" *ngFor="let action of actions | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <div class="row">
         <div class="col">
-          <img src='../../assets/test.png' class="rounded-circle">
+          <img src='../../assets/{{action.be.value}}.png' class="rounded-circle">
           <img src='../../assets/refunded.png' class="rounded-circle" style="margin-left: -60%;width: 16%;" *ngIf="action.actionType.code=='order_refunded'">
           <img src='../../assets/created.png' class="rounded-circle" style="margin-left: -60%;width: 16%;" *ngIf="action.actionType.code=='order_created'">
         </div>
